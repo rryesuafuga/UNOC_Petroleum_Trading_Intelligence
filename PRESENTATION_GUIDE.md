@@ -60,7 +60,7 @@ Click "Launch Live Demo" to show:
 - Emphasize national content objectives
 - Show strategic competitive advantage
 
-### For Products Trading Manager:
+### For Trading Operations Team:
 - Demonstrate daily operational features
 - Show automation of manual processes
 - Highlight risk reduction capabilities

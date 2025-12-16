@@ -2,7 +2,7 @@
 
 ## 🚀 Professional Pitch Deck for Uganda's Petroleum Trading Revolution
 
-This is a fully interactive presentation website designed to pitch the UPTIP solution to UNOC (Uganda National Oil Company) and other stakeholders. The platform addresses all 12 essential duties outlined in the Products Trading Analyst job description.
+This is a fully interactive presentation website designed to pitch the UPTIP solution to UNOC (Uganda National Oil Company) and other stakeholders. The platform provides comprehensive support for petroleum trading operations and strategic decision-making.
 
 ## 📋 Overview
 
@@ -101,22 +101,22 @@ uptip-website/
 - **6-week implementation** timeline
 - **Zero infrastructure** required (cloud-based)
 
-### Addressing Job Requirements:
-✅ Market surveys and demand analysis (Duty #1)  
-✅ End-to-end process monitoring (Duty #2)  
-✅ Global market intelligence (Duty #3)  
-✅ KPC validation automation (Duty #4)  
-✅ Pricing strategy optimization (Duty #5)  
-✅ Process automation (Duty #6)  
-✅ Product specification tracking (Duty #7)  
-✅ OMC performance analysis (Duty #8)  
-✅ Logistics optimization (Duty #9)  
-✅ Performance analytics (Duty #10)  
-✅ Cross-functional collaboration (Duty #11)  
+### Key Capabilities:
+✅ Market surveys and demand analysis
+✅ End-to-end process monitoring
+✅ Global market intelligence
+✅ KPC validation automation
+✅ Pricing strategy optimization
+✅ Process automation
+✅ Product specification tracking
+✅ OMC performance analysis
+✅ Logistics optimization
+✅ Performance analytics
+✅ Cross-functional collaboration
 
 ## 🎯 Target Users
 
-- **Primary**: UNOC Products Trading Manager
+- **Primary**: UNOC Trading Operations Team
 - **Secondary**: UNOC Executive Team
 - **Stakeholders**: Ministry of Energy, OMCs, International Partners
 

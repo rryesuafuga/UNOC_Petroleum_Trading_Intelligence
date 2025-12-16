@@ -163,7 +163,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
           <div className="section-header">
             <span className="section-badge">CAPABILITIES</span>
             <h2>Integrated Intelligence Modules</h2>
-            <p>Comprehensive platform addressing all 12 essential duties of the Products Trading Analyst role</p>
+            <p>Comprehensive platform supporting UNOC's petroleum trading operations and strategic decision-making</p>
           </div>
 
           <div className="features-grid">
