@@ -1,8 +1,9 @@
 import React from 'react';
-import { 
-  TrendingUp, BarChart, Shield, Globe, 
+import {
+  TrendingUp, BarChart, Shield, Globe,
   Truck, DollarSign, AlertCircle, ChevronRight,
-  Database, Clock, Users, Activity
+  Database, Clock, Users, Activity, Ship, LineChart,
+  Building, MapPin
 } from 'lucide-react';
 import './LandingPage.css';
 
@@ -25,28 +26,64 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
       description: 'AI-powered forecasting predicts demand 14 days ahead with 92% accuracy',
       icon: TrendingUp,
       color: '#3B82F6',
-      metrics: ['Prevent stockouts', '40% faster decisions', 'Real-time vessel tracking']
+      metrics: ['Prevent stockouts', '40% faster decisions', 'Real-time vessel tracking'],
+      view: 'supply'
     },
     {
       title: 'Price Intelligence',
       description: 'Optimize pricing with regional market analysis and ML predictions',
       icon: DollarSign,
       color: '#10B981',
-      metrics: ['$0.45/barrel accuracy', '10% margin improvement', 'Automated pricing']
+      metrics: ['$0.45/barrel accuracy', '10% margin improvement', 'Automated pricing'],
+      view: 'pricing'
     },
     {
       title: 'OMC Portfolio Management',
       description: 'Smart allocation algorithm prioritizes indigenous OMCs and manages risk',
       icon: Users,
       color: '#F59E0B',
-      metrics: ['Credit scoring', 'Automated allocation', '30% risk reduction']
+      metrics: ['Credit scoring', 'Automated allocation', '30% risk reduction'],
+      view: 'portfolio'
     },
     {
       title: 'Process Automation',
       description: 'Blockchain-enabled documentation and smart contracts for efficiency',
       icon: Shield,
       color: '#8B5CF6',
-      metrics: ['99.6% time reduction', 'Zero-touch validation', 'Instant settlements']
+      metrics: ['99.6% time reduction', 'Zero-touch validation', 'Instant settlements'],
+      view: 'automation'
+    },
+    {
+      title: 'Trading Analytics',
+      description: 'Advanced demand forecasting with LSTM + Prophet ML models and risk analysis',
+      icon: LineChart,
+      color: '#EF4444',
+      metrics: ['14-day forecasting', 'VaR analysis', 'Automated reports'],
+      view: 'analytics'
+    },
+    {
+      title: 'Market Intelligence',
+      description: 'Global market monitoring with geo-political risk alerts and OPEC tracking',
+      icon: Globe,
+      color: '#06B6D4',
+      metrics: ['Live price feeds', 'Geo-political alerts', 'Supply chain status'],
+      view: 'market'
+    },
+    {
+      title: 'Stakeholder Management',
+      description: 'KPC partnership tracking, terminal operators, and OMC relationship management',
+      icon: Building,
+      color: '#EC4899',
+      metrics: ['KPC metrics', 'Terminal tracking', 'Communication logs'],
+      view: 'stakeholders'
+    },
+    {
+      title: 'Vessel Tracking',
+      description: 'Real-time AIS vessel tracking with interactive maps and cargo monitoring',
+      icon: Ship,
+      color: '#14B8A6',
+      metrics: ['Live AIS data', 'ETA tracking', 'Cargo monitoring'],
+      view: 'vessels'
     }
   ];
 
@@ -60,8 +97,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
             <span className="logo-subtitle">UNOC PetroTrade Intelligence Platform</span>
           </div>
           <div className="nav-links">
-            <a onClick={() => setView('dashboard')}>Live Dashboard</a>
-            <a onClick={() => setView('supply')}>Modules</a>
+            <a onClick={() => setView('dashboard')}>Dashboard</a>
+            <a onClick={() => setView('analytics')}>Analytics</a>
+            <a onClick={() => setView('market')}>Market Intel</a>
+            <a onClick={() => setView('vessels')}>Vessel Tracking</a>
+            <a onClick={() => setView('stakeholders')}>Stakeholders</a>
             <button className="cta-button" onClick={() => setView('dashboard')}>
               View Demo
             </button>
@@ -130,10 +170,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <div key={index} className="feature-card" onClick={() => {
-                  const views = ['supply', 'pricing', 'portfolio', 'automation'];
-                  setView(views[index]);
-                }}>
+                <div key={index} className="feature-card" onClick={() => setView(feature.view)}>
                   <div className="feature-icon" style={{backgroundColor: feature.color + '20'}}>
                     <IconComponent style={{color: feature.color}} />
                   </div>

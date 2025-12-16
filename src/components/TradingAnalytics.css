@@ -1,0 +1,825 @@
+/* Trading Analytics - Professional Enterprise Design */
+
+.trading-analytics {
+  min-height: 100vh;
+  background: var(--gray-50);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Header */
+.analytics-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.analytics-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.analytics-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.analytics-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--info);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.analytics-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.time-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  color: var(--gray-600);
+}
+
+.time-selector select {
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+.refresh-btn,
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  color: var(--gray-600);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition);
+}
+
+.refresh-btn:hover,
+.filter-btn:hover {
+  background: var(--gray-50);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* KPI Summary */
+.kpi-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.kpi-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.kpi-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-change {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kpi-change.up {
+  color: var(--success);
+}
+
+.kpi-change.down {
+  color: var(--danger);
+}
+
+.kpi-target {
+  color: var(--gray-500);
+  font-size: 0.75rem;
+}
+
+/* Tab Navigation */
+.analytics-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 2rem;
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--gray-600);
+  font-weight: 500;
+  font-size: 0.925rem;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition);
+}
+
+.tab-btn:hover {
+  color: var(--accent);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Analytics Main Content */
+.analytics-main {
+  padding: 2rem;
+}
+
+.analytics-content {
+  animation: fadeIn 0.3s ease;
+}
+
+.analytics-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+}
+
+.section-title h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+.model-badge {
+  margin-left: auto;
+  padding: 0.25rem 0.75rem;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.chart-large {
+  height: 350px;
+  margin-bottom: 1.5rem;
+}
+
+/* Forecast Insights */
+.forecast-insights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.insight-card {
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+}
+
+.insight-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.insight-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.insight-value.warning {
+  color: var(--warning);
+}
+
+.insight-change {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+.insight-change.positive {
+  color: var(--success);
+}
+
+/* Analytics Grid */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.analytics-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+}
+
+.analytics-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Model Metrics */
+.model-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.model-metric {
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.metric-name {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 0.5rem;
+}
+
+.metric-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Drivers List */
+.drivers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.driver-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.driver-name {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.driver-bar {
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.driver-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.driver-val {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: right;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.pricing-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+}
+
+.pricing-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.pricing-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+.highlight-row {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), transparent);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+/* Margin Metrics */
+.margin-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.margin-item {
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.margin-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 0.5rem;
+}
+
+.margin-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Recommendation Box */
+.recommendation-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius);
+}
+
+.rec-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+.rec-content strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.rec-content p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Risk Section */
+.risk-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.risk-metric-card {
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--gray-200);
+}
+
+.risk-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.risk-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.risk-value.warning {
+  color: var(--warning);
+}
+
+.risk-period {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* Scenario Table */
+.risk-scenarios {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.risk-scenarios h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scenario-table th,
+.scenario-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.scenario-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  background: var(--gray-50);
+}
+
+.action-btn-sm {
+  padding: 0.25rem 0.75rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.action-btn-sm:hover {
+  background: var(--accent-dark);
+}
+
+/* Correlation Grid */
+.correlation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.correlation-card {
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.corr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.corr-pair {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.corr-significance {
+  font-size: 0.625rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.corr-significance.high {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.corr-significance.medium {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.corr-significance.low {
+  background: var(--gray-200);
+  color: var(--gray-600);
+}
+
+.corr-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.corr-trend {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* Reports Section */
+.reports-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.report-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+
+.report-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.report-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.report-info {
+  flex: 1;
+}
+
+.report-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.report-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+}
+
+.report-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.report-download {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.report-download:hover {
+  background: var(--accent-dark);
+}
+
+/* Export Section */
+.export-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+}
+
+.export-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.export-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.export-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .kpi-summary,
+  .forecast-insights,
+  .risk-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-grid,
+  .pricing-grid,
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .correlation-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .analytics-header .header-right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .kpi-summary,
+  .forecast-insights,
+  .risk-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-tabs {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .correlation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .export-options {
+    flex-direction: column;
+  }
+}
