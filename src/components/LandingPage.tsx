@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TrendingUp, BarChart, Shield, Globe,
   Truck, DollarSign, AlertCircle, ChevronRight,
   Database, Clock, Users, Activity, Ship, LineChart,
-  Building, MapPin
+  Building, MapPin, Menu, X
 } from 'lucide-react';
 import './LandingPage.css';
 
@@ -13,6 +13,8 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const stats = [
     { label: 'Current PMS Price', value: `UGX ${liveData.currentPrice.toFixed(0)}/L`, icon: DollarSign },
     { label: 'Vessels in Transit', value: liveData.vesselCount, icon: Truck },
@@ -96,7 +98,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
             <span className="logo-text">UPTIP</span>
             <span className="logo-subtitle">UNOC PetroTrade Intelligence Platform</span>
           </div>
-          <div className="nav-links">
+
+          {/* Desktop Navigation */}
+          <div className="nav-links desktop-nav">
             <a onClick={() => setView('dashboard')}>Dashboard</a>
             <a onClick={() => setView('analytics')}>Analytics</a>
             <a onClick={() => setView('market')}>Market Intel</a>
@@ -106,6 +110,27 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
               View Demo
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Overlay */}
+        <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
+          <a onClick={() => { setView('dashboard'); setMobileMenuOpen(false); }}>Dashboard</a>
+          <a onClick={() => { setView('analytics'); setMobileMenuOpen(false); }}>Analytics</a>
+          <a onClick={() => { setView('market'); setMobileMenuOpen(false); }}>Market Intel</a>
+          <a onClick={() => { setView('vessels'); setMobileMenuOpen(false); }}>Vessel Tracking</a>
+          <a onClick={() => { setView('stakeholders'); setMobileMenuOpen(false); }}>Stakeholders</a>
+          <button className="cta-button mobile-cta" onClick={() => { setView('dashboard'); setMobileMenuOpen(false); }}>
+            View Demo
+          </button>
         </div>
       </nav>
 
