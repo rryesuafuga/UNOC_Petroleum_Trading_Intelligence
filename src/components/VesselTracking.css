@@ -1,0 +1,787 @@
+/* Vessel Tracking - Professional Enterprise Design */
+
+.vessel-tracking {
+  min-height: 100vh;
+  background: var(--gray-50);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Header */
+.vessel-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.vessel-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.vessel-header .back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.vessel-header .back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.vessel-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34D399;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #34D399;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.vessel-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vessel-header .search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+}
+
+.vessel-header .search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.875rem;
+  color: white;
+  width: 180px;
+}
+
+.vessel-header .search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vessel-header .search-box svg {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.vessel-header .icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  color: white;
+  transition: all var(--transition);
+}
+
+.vessel-header .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.refresh-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Content Layout */
+.tracking-content {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  height: calc(100vh - 64px);
+}
+
+/* Map Container */
+.map-container {
+  position: relative;
+  background: #1a1a2e;
+  overflow: hidden;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.map-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5;
+  opacity: 0.3;
+}
+
+.map-overlay svg {
+  margin-bottom: 1rem;
+}
+
+.map-overlay h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.map-overlay p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.map-legend {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.transit {
+  background: #3B82F6;
+}
+
+.legend-dot.loading {
+  background: #F59E0B;
+}
+
+.legend-dot.anchor {
+  background: #8B5CF6;
+}
+
+.legend-dot.discharging {
+  background: #10B981;
+}
+
+/* Vessel Markers */
+.vessel-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.vessel-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  animation: vesselPulse 2s infinite;
+}
+
+.vessel-marker.transit {
+  background: #3B82F6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.vessel-marker.loading {
+  background: #F59E0B;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.vessel-marker.anchor {
+  background: #8B5CF6;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.vessel-marker.discharging {
+  background: #10B981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.vessel-marker svg {
+  color: white;
+}
+
+.vessel-marker:hover,
+.vessel-marker.selected {
+  transform: translate(-50%, -50%) scale(1.3);
+  z-index: 20;
+}
+
+.vessel-marker.selected {
+  animation: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3), 0 0 30px currentColor;
+}
+
+@keyframes vesselPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 30px currentColor;
+  }
+}
+
+/* Port Markers */
+.port-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.port-marker.destination svg {
+  color: #EF4444;
+}
+
+.port-marker.origin svg {
+  color: #10B981;
+}
+
+/* Weather Panel */
+.weather-panel {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  min-width: 280px;
+  z-index: 20;
+}
+
+.weather-panel h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 0.75rem 0;
+}
+
+.weather-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weather-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+}
+
+.weather-region {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.weather-data {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.weather-sea {
+  font-size: 0.75rem;
+  color: #34D399;
+  text-align: right;
+}
+
+/* Sidebar */
+.tracking-sidebar {
+  background: white;
+  border-left: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Fleet Summary */
+.fleet-summary {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.fleet-summary h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 0.75rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.stat-item .stat-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-item .stat-label {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+/* Vessel List */
+.vessel-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.vessel-list h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+}
+
+.vessel-card {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.vessel-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.vessel-card.selected {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.05);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.vessel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.vessel-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.vessel-name .flag {
+  font-size: 1.125rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.transit {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.status-badge.loading {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.status-badge.anchor {
+  background: #E9D5FF;
+  color: #7C3AED;
+}
+
+.status-badge.discharging {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.vessel-card-body {
+  margin-bottom: 0.75rem;
+}
+
+.vessel-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+
+.vessel-route .origin {
+  color: var(--gray-600);
+}
+
+.vessel-route .arrow {
+  color: var(--gray-400);
+}
+
+.vessel-route .destination {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.vessel-cargo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+}
+
+.vessel-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--gray-200);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  min-width: 36px;
+}
+
+.vessel-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.eta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+.update-time {
+  font-size: 0.6875rem;
+  color: var(--gray-400);
+}
+
+/* Vessel Detail Panel */
+.vessel-detail-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 380px;
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.detail-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detail-title svg {
+  color: var(--accent);
+}
+
+.detail-title h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+.detail-title .imo {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.close-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.25rem;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.close-btn:hover {
+  background: var(--gray-200);
+  color: var(--primary);
+}
+
+.detail-content {
+  padding: 1.5rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+}
+
+.detail-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item .label {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+}
+
+.detail-item .value {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.detail-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.detail-actions .action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  color: var(--gray-600);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition);
+}
+
+.detail-actions .action-btn:hover {
+  background: var(--gray-100);
+  color: var(--primary);
+}
+
+.detail-actions .action-btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-color: var(--accent);
+  color: white;
+}
+
+.detail-actions .action-btn.primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .tracking-content {
+    grid-template-columns: 1fr 320px;
+  }
+
+  .vessel-detail-panel {
+    right: 320px;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .vessel-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .tracking-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+  }
+
+  .vessel-detail-panel {
+    right: 0;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-actions {
+    flex-wrap: wrap;
+  }
+
+  .weather-panel {
+    display: none;
+  }
+}

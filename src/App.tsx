@@ -6,6 +6,10 @@ import SupplyDemandModule from './components/SupplyDemandModule';
 import PriceOptimizer from './components/PriceOptimizer';
 import OMCPortfolio from './components/OMCPortfolio';
 import ProcessAutomation from './components/ProcessAutomation';
+import TradingAnalytics from './components/TradingAnalytics';
+import MarketIntelligence from './components/MarketIntelligence';
+import StakeholderManagement from './components/StakeholderManagement';
+import VesselTracking from './components/VesselTracking';
 
 function App() {
   const [currentView, setCurrentView] = useState('landing');
@@ -44,6 +48,14 @@ function App() {
         return <OMCPortfolio setView={setCurrentView} liveData={liveData} />;
       case 'automation':
         return <ProcessAutomation setView={setCurrentView} liveData={liveData} />;
+      case 'analytics':
+        return <TradingAnalytics setView={setCurrentView} />;
+      case 'market':
+        return <MarketIntelligence setView={setCurrentView} />;
+      case 'stakeholders':
+        return <StakeholderManagement setView={setCurrentView} />;
+      case 'vessels':
+        return <VesselTracking setView={setCurrentView} />;
       default:
         return <LandingPage setView={setCurrentView} liveData={liveData} />;
     }
