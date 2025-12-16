@@ -260,11 +260,11 @@ source-map-explorer 'build/static/js/*.js'
 ```
 Subject: UPTIP Platform Demo - Ready for Review
 
-Dear UNOC Products Trading Team,
+Dear UNOC Trading Operations Team,
 
-I'm pleased to share the live demonstration of the UNOC PetroTrade 
-Intelligence Platform (UPTIP) designed specifically for the Products 
-Trading Analyst role.
+I'm pleased to share the live demonstration of the UNOC PetroTrade
+Intelligence Platform (UPTIP) designed to support UNOC's petroleum
+trading operations.
 
 🔗 Live Demo: https://uptip-unoc.netlify.app
 
@@ -274,8 +274,8 @@ Key Features:
 ✓ OMC portfolio management
 ✓ Process automation with blockchain
 
-The platform addresses all 12 essential duties outlined in the job 
-description and projects $7.2M in annual savings.
+The platform provides comprehensive trading intelligence capabilities
+and projects $7.2M in annual savings.
 
 I welcome the opportunity to walk through the platform with your team.
 
