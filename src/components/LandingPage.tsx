@@ -72,25 +72,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
+          {/* Live Badge */}
+          <div className="hero-badge">
+            <div className="live-dot"></div>
+            <span className="hero-badge-text">LIVE DATA STREAMING</span>
+          </div>
+
           <h1 className="hero-title">
-            Transform Uganda's Petroleum Trading
-            <span className="gradient-text"> with AI-Powered Intelligence</span>
+            Enterprise Petroleum
+            <span className="gradient-text">Trading Intelligence</span>
           </h1>
           <p className="hero-subtitle">
-            A comprehensive trading analytics platform designed specifically for UNOC's 
-            Products Trading Analyst role. Manage 2.5 billion liters annually with 
-            confidence using real-time data and predictive analytics.
+            Comprehensive trading intelligence platform for Uganda's emerging petroleum sector.
+            Supporting UNOC's mandate as Uganda transitions from 6.5 billion barrels of discovered reserves
+            to active production through Tilenga, Kingfisher, and EACOP projects.
           </p>
-          <div className="hero-actions">
-            <button className="primary-button" onClick={() => setView('dashboard')}>
-              <Activity className="icon" />
-              Launch Live Demo
-            </button>
-            <button className="secondary-button" onClick={() => setView('supply')}>
-              Explore Features
-              <ChevronRight className="icon" />
-            </button>
-          </div>
 
           {/* Live Stats Bar */}
           <div className="stats-bar">
@@ -107,16 +103,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
               );
             })}
           </div>
-        </div>
 
-        <div className="hero-visual">
-          <div className="dashboard-preview">
-            <img src="/api/placeholder/600/400" alt="Dashboard Preview" />
-            <div className="preview-overlay">
-              <div className="pulse-dot" style={{top: '30%', left: '40%'}} />
-              <div className="pulse-dot" style={{top: '60%', left: '70%'}} />
-              <div className="pulse-dot" style={{top: '45%', left: '25%'}} />
-            </div>
+          <div className="hero-actions">
+            <button className="primary-button" onClick={() => setView('dashboard')}>
+              <Activity className="icon" />
+              View Live Dashboard
+            </button>
+            <button className="secondary-button" onClick={() => setView('supply')}>
+              Explore Features
+              <ChevronRight className="icon" />
+            </button>
           </div>
         </div>
       </section>
@@ -125,8 +121,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView, liveData }) => {
       <section className="value-prop">
         <div className="container">
           <div className="section-header">
-            <h2>Addressing All 12 Essential Duties</h2>
-            <p>Purpose-built for UNOC's Products Trading Analyst position</p>
+            <span className="section-badge">CAPABILITIES</span>
+            <h2>Integrated Intelligence Modules</h2>
+            <p>Comprehensive platform addressing all 12 essential duties of the Products Trading Analyst role</p>
           </div>
 
           <div className="features-grid">
