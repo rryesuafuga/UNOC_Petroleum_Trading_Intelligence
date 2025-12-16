@@ -1,0 +1,763 @@
+/* Module Container Base Styles */
+.module-container {
+  min-height: 100vh;
+  background-color: #F9FAFB;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Module Header Styles */
+.module-header {
+  background: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #1F2937;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #E5E7EB;
+  color: #6B7280;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: #F3F4F6;
+  color: #1F2937;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #E5E7EB;
+  color: #4B5563;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background: #3B82F6;
+  color: white;
+}
+
+/* Metrics Row */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E7EB;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card.primary {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  color: white;
+}
+
+.metric-card.success {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: white;
+}
+
+.metric-card.warning {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+}
+
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.metric-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+.metric-card.primary .metric-label,
+.metric-card.success .metric-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.metric-card.primary .metric-value,
+.metric-card.success .metric-value {
+  color: white;
+}
+
+.metric-change {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.metric-change.positive {
+  color: #10B981;
+}
+
+.metric-change.negative {
+  color: #EF4444;
+}
+
+/* Chart Panels */
+.charts-layout {
+  padding: 0 2rem;
+}
+
+.chart-panel {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E7EB;
+  margin-bottom: 1.5rem;
+}
+
+.chart-panel.large {
+  grid-column: span 2;
+}
+
+.chart-panel.half {
+  width: 48%;
+}
+
+.charts-row {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.panel-header h3 {
+  font-size: 1.125rem;
+  color: #1F2937;
+  margin: 0;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #F9FAFB;
+}
+
+th {
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4B5563;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+td {
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: #1F2937;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+tr:hover {
+  background: #F9FAFB;
+}
+
+tr.highlight {
+  background: #EFF6FF;
+  font-weight: 600;
+}
+
+/* Selectors */
+.product-selector,
+.market-selector,
+.segment-selector,
+.process-selector {
+  padding: 0.5rem 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  background: white;
+  color: #1F2937;
+  font-size: 0.875rem;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-badge.growth {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.status-badge.risk {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.risk-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.risk-badge.low {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.risk-badge.medium {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.risk-badge.high {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Utilization Bar */
+.utilization-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  height: 20px;
+  overflow: hidden;
+}
+
+.utilization-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.utilization-bar span {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin-left: 0.5rem;
+}
+
+/* Score Bar */
+.score-bar {
+  display: flex;
+  align-items: center;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.score-bar span {
+  position: relative;
+  z-index: 1;
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Growth Indicators */
+.growth-high {
+  color: #10B981;
+  font-weight: 600;
+}
+
+.growth-normal {
+  color: #3B82F6;
+}
+
+/* Section Styles */
+.supply-chain-section,
+.routes-section,
+.inventory-section,
+.indigenous-section,
+.allocation-section,
+.blockchain-section,
+.smart-contracts-section,
+.automation-pipeline {
+  background: white;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E7EB;
+}
+
+/* Forecast Controls */
+.forecast-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.forecast-controls button {
+  padding: 0.5rem 1rem;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  color: #6B7280;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.forecast-controls button.active {
+  background: #3B82F6;
+  color: white;
+  border-color: #3B82F6;
+}
+
+/* Inventory Cards */
+.inventory-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.inventory-card {
+  padding: 1rem;
+  background: #F9FAFB;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.inventory-card .label {
+  font-size: 0.75rem;
+  color: #6B7280;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.inventory-card .value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+/* Recommendations */
+.recommendations-panel {
+  padding: 2rem;
+  margin: 2rem;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  border-radius: 1rem;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.recommendation-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E7EB;
+}
+
+.rec-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rec-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.rec-icon.warning {
+  color: #F59E0B;
+}
+
+.rec-icon.success {
+  color: #10B981;
+}
+
+.rec-icon.info {
+  color: #3B82F6;
+}
+
+.rec-type {
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.rec-content {
+  color: #4B5563;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.rec-impact {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #E5E7EB;
+  font-size: 0.875rem;
+}
+
+.rec-impact .value {
+  font-weight: 600;
+  color: #1F2937;
+}
+
+/* Blockchain Feed */
+.blockchain-feed {
+  background: #1F2937;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: white;
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #374151;
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #DC2626;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.chain-info {
+  color: #9CA3AF;
+  font-size: 0.875rem;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tx-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3B82F6;
+}
+
+.tx-details {
+  flex: 1;
+}
+
+.tx-main {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.tx-id {
+  font-weight: 600;
+  color: #3B82F6;
+}
+
+.tx-type {
+  color: #D1D5DB;
+}
+
+.tx-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #9CA3AF;
+}
+
+.tx-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tx-status.verified {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+.tx-status.pending {
+  background: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+}
+
+.tx-status.completed {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3B82F6;
+}
+
+.tx-status.executed {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8B5CF6;
+}
+
+/* Workflow Stages */
+.workflow-stages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: #F9FAFB;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.stage {
+  text-align: center;
+  position: relative;
+}
+
+.stage-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: white;
+  border: 2px solid #E5E7EB;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6B7280;
+}
+
+.stage.completed .stage-icon {
+  background: #10B981;
+  border-color: #10B981;
+  color: white;
+}
+
+.stage.active .stage-icon {
+  background: #3B82F6;
+  border-color: #3B82F6;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.stage h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: #1F2937;
+}
+
+.stage p {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+.stage .time {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #10B981;
+}
+
+.stage-arrow {
+  font-size: 1.5rem;
+  color: #9CA3AF;
+}
+
+.workflow-summary {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #E5E7EB;
+}
+
+.workflow-summary span {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.workflow-summary .total-time {
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.workflow-summary .improvement {
+  color: #10B981;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .charts-row {
+    flex-direction: column;
+  }
+  
+  .chart-panel.half {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .inventory-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .workflow-stages {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .stage-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .header-actions {
+    display: none;
+  }
+}

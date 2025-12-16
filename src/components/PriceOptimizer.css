@@ -1,0 +1,88 @@
+/* Import shared module styles */
+@import './modules.css';
+
+/* Price Optimizer Specific Styles */
+.price-optimizer {
+  background: #F9FAFB;
+}
+
+.cost-summary {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #F9FAFB;
+  border-radius: 0.5rem;
+  border: 1px solid #E5E7EB;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item.highlight {
+  font-weight: 600;
+  color: #10B981;
+  background: #F0FDF4;
+  padding: 0.75rem;
+  margin: 0.5rem -1rem -1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.summary-item .value {
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.optimization-tips {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #EFF6FF;
+  border-radius: 0.5rem;
+  border: 1px solid #3B82F6;
+}
+
+.optimization-tips h4 {
+  color: #1E40AF;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.optimization-tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.optimization-tips li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #4B5563;
+  font-size: 0.875rem;
+}
+
+.optimization-tips li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3B82F6;
+  font-weight: bold;
+}
+
+.competitor-table {
+  overflow-x: auto;
+}
+
+.competitor-table table {
+  width: 100%;
+}
+
+.competitor-table tr.highlight {
+  background: #EFF6FF;
+  font-weight: 600;
+}

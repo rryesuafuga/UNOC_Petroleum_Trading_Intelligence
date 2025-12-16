@@ -1,0 +1,144 @@
+/* Import shared module styles */
+@import './modules.css';
+
+/* OMC Portfolio Specific Styles */
+.omc-portfolio {
+  background: #F9FAFB;
+}
+
+.indigenous-table {
+  overflow-x: auto;
+  background: white;
+}
+
+.indigenous-table table {
+  width: 100%;
+}
+
+.growth-high {
+  color: #10B981;
+  font-weight: 600;
+}
+
+.growth-normal {
+  color: #3B82F6;
+}
+
+.credit-table {
+  overflow-x: auto;
+}
+
+.allocation-scenario {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+}
+
+.scenario-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.scenario-header h4 {
+  color: #1F2937;
+  margin-bottom: 0.5rem;
+}
+
+.scenario-header p {
+  color: #6B7280;
+  font-size: 0.875rem;
+}
+
+.allocation-rules {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #F9FAFB;
+  border-radius: 0.75rem;
+}
+
+.allocation-rules h4 {
+  color: #1F2937;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.allocation-rules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.allocation-rules li {
+  padding: 0.5rem 0;
+  color: #4B5563;
+  font-size: 0.875rem;
+}
+
+.action-items {
+  padding: 2rem;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  margin: 2rem;
+  border-radius: 1rem;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.action-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  color: #3B82F6;
+}
+
+.action-card h4 {
+  color: #1F2937;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.action-card p {
+  color: #6B7280;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1.5rem;
+  background: #3B82F6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #2563EB;
+}
+
+@media (max-width: 768px) {
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
