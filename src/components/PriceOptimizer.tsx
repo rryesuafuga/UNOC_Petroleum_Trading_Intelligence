@@ -203,7 +203,7 @@ const PriceOptimizer: React.FC<PriceOptimizerProps> = ({ setView, liveData }) =>
             <ul>
               <li>Increase PMS margin by UGX 55/L during peak hours</li>
               <li>Dynamic pricing for AGO based on demand</li>
-              <li>Lock in forward contracts when Platts < $92/bbl</li>
+              <li>Lock in forward contracts when Platts &lt; $92/bbl</li>
             </ul>
           </div>
         </div>

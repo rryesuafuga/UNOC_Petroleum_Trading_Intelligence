@@ -33,9 +33,7 @@ const ProcessAutomation: React.FC<ProcessAutomationProps> = ({ setView, liveData
     { process: 'Quality Verification', manual: 90, automated: 10, savings: 88.9 }
   ];
 
-  const timeS
-
- = [
+  const timeSavings = [
     { month: 'Aug', manual: 820, automated: 180 },
     { month: 'Sep', manual: 680, automated: 320 },
     { month: 'Oct', manual: 520, automated: 480 },
